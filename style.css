@@ -359,3 +359,310 @@ footer {
   color: #94a3b8;
   font-size: 18px;
 }
+/* EVENTS PAGE */
+.events-section {
+  padding: 80px 0;
+}
+
+.events-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 80px;
+  text-align: center;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.event-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 30px;
+  border-radius: 14px;
+  text-align: left;
+}
+
+.event-card h4 {
+  margin-bottom: 10px;
+  color: #072359;
+}
+
+.event-date {
+  color: #38bdf8;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.event-card p {
+  color: #08096a;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.event-card.past {
+  opacity: 0.75;
+}
+/* TEAM PAGE */
+.team-section {
+  padding: 80px 0;
+}
+
+.team-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 80px;
+  text-align: center;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 3fr); /* 3 cards per row */
+  gap: 30px;
+  justify-content: center;
+  /* Center last row when only 2 items */
+.team-grid > :nth-last-child(1):nth-child(3n + 1),
+.team-grid > :nth-last-child(2):nth-child(3n + 1) {
+  grid-column: 2 / span 1;
+}
+
+.team-grid > :nth-last-child(1):nth-child(3n + 2) {
+  grid-column: 3 / span 1;
+}
+@media (max-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+}
+
+}
+
+.team-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 30px;
+  border-radius: 14px;
+}
+
+.team-photo,
+.faculty-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #001028;
+  margin: 0 auto 15px;
+}
+
+.team-card h4,
+.faculty-card h4 {
+  color: #071228;
+  margin-bottom: 5px;
+}
+
+.team-card p,
+.faculty-card p {
+  color: #0456c9;
+  font-size: 14px;
+}
+
+/* FACULTY */
+.faculty-card {
+  margin-top: 40px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 40px;
+  border-radius: 14px;
+}
+/* RESOURCES PAGE */
+.resources-section {
+  padding: 80px 0;
+}
+
+.resources-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 80px;
+  text-align: center;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.resource-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 30px;
+  border-radius: 14px;
+  text-align: left;
+}
+
+.resource-card i {
+  font-size: 28px;
+  color: #38bdf8;
+  margin-bottom: 15px;
+}
+
+.resource-card h4 {
+  color: #e5e7eb;
+  margin-bottom: 15px;
+}
+
+.resource-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.resource-card ul li {
+  margin-bottom: 10px;
+}
+
+.resource-card ul li a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.resource-card ul li a:hover {
+  color: #38bdf8;
+  text-decoration: underline;
+}
+/* CONTACT PAGE */
+.contact-section {
+  padding: 80px 0;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 40px;
+  border-radius: 14px;
+}
+
+.contact-card h3 {
+  color: #082359;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.contact-card form input,
+.contact-card form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border-radius: 9px;
+  border: none;
+  background: #04203c;
+  color: #e5e7eb;
+}
+
+.contact-card form input::placeholder,
+.contact-card form textarea::placeholder {
+  color: #96b3db;
+}
+
+.contact-card form textarea {
+  resize: none;
+}
+
+/* CONTACT SOCIALS */
+.contact-socials {
+  justify-content: flex-start;
+  margin-bottom: 30px;
+}
+/* HEADER COLOR HIERARCHY */
+header h1 {
+  color: #ffffff;              /* Brand / highlight color */
+}
+
+nav a {
+  color: #cbd5e1;              /* Softer nav color */
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+/* Active page */
+nav a.active {
+  color: #38bdf8;
+  font-weight: 600;
+}
+/* CONTACT CARD – MAKE IT A REAL BOX */
+.contact-card {
+  background: rgba(255, 255, 255, 0.04);   /* dark glass look */
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 16px;
+}
+
+/* SOCIALS INSIDE CARD */
+.contact-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+header {
+  background: #020617;
+}
+/* TEAM – 5 DEPARTMENTS ONLY */
+.team-departments {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 40px;
+}
+
+.department {
+  margin-bottom: 60px;
+}
+
+.department h3 {
+  font-size: 24px;
+  color: #38bdf8;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* MEMBERS LIST */
+.members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 40px;
+  justify-content: center;
+}
+
+.members span {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #061a41;
+  font-size: 15px;
+}
