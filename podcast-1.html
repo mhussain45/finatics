@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Finatics | The Finance Club</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class ="logo">
+    <img src="Finatics Logo.jpeg" alt="Finatics Logo">
+    <h1>Finatics I The Finance Club</h1>
+    </div>
+  <nav>
+    <a href="./index.html">Home</a>
+    <a href="./about.html">About</a>
+    <a href="./events.html">Events</a>
+    <a href="./team.html">Team</a>
+    <a href="./resources.html">Resources</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
+</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Event Details</title>
+    <style>
+        /* --- CSS STYLES --- */
+        
+        /* Container limits width and centers content */
+        .event-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        .event-page-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-size: 2rem;
+        }
+
+        /* The Tile (Card) */
+        .event-tile {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden; /* Essential for the sliding animation */
+        }
+
+        /* The Clickable Header */
+        .tile-header {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            transition: background 0.3s ease;
+        }
+
+        .tile-header:hover {
+            background: #e9ecef;
+        }
+
+        /* The +/- Icon */
+        .tile-header .icon {
+            font-size: 1.5rem;
+            color: #3498db;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        /* Active State (When open) */
+        .event-tile.active .tile-header {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .event-tile.active .icon {
+            transform: rotate(45deg); /* Rotates + to x */
+            color: #d32f2f;
+        }
+
+        /* The Content (Hidden by default) */
+        .tile-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out; /* Smooth slide */
+            background-color: #fff;
+            text-align: justify;
+        }
+
+        .content-inner {
+            padding: 25px;
+            border-top: 1px solid #eee;
+            line-height: 1.6;
+        }
+
+        /* --- Custom Section Styles --- */
+
+        /* 1. Details Grid */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .detail-item strong {
+            display: block;
+            color: #555;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* 3. Team List */
+        .team-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            width: 100%;
+        }
+        .team-member {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 15px 15px;
+            text-align: center;
+            font-weight: 500;
+            color:#333;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+        }
+/* Mobile adjustment for Team Grid: collapses to 2 columns on small screens */
+        @media (max-width: 600px) {
+            .team-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        /* 4. Objectives List */
+        .objectives-list {
+            padding-left: 20px;
+            text-align: justify;
+        }
+        .objectives-list li {
+            margin-bottom: 8px;
+        }
+        /* --- Panelist Section Styles --- */
+.panelist-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.panelist-card {
+    flex: 1;
+    text-align: center;
+    min-width: 120px;
+}
+
+.panelist-photo {
+    width: 110px;       /* Fixed width */
+    height: 110px;      /* Fixed height */
+    border-radius: 50%; /* Makes the image a circle */
+    object-fit: cover;  /* Prevents image distortion */
+    margin-bottom: 10px;
+    border: 4px solid #f1c40f; /* Optional grey border around photo */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.panelist-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 3px;
+}
+
+.panelist-role {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* Mobile: Stack guests vertically on small screens */
+@media (max-width: 500px) {
+    .panelist-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+        /* 7. Photo Gallery */
+        .photo-gallery {
+            column-count: 3;
+            column-gap: 15px;
+            padding: 10px 0;
+        }
+        .gallery-img {
+    width: 100%; /* Forces image to fit the column width */
+    margin-bottom: 15px; /* Space between images vertically */
+    border-radius: 8px;
+    display: block; /* Removes weird gap at bottom of images */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s; /* Smooth zoom effect */
+}
+
+.gallery-img:hover {
+    transform: scale(1.03); /* Slight zoom when you hover */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Mobile: Switch to 2 columns so images aren't too small */
+@media (max-width: 600px) {
+    .photo-gallery {
+        column-count: 2;
+    }
+}
+        /* Use this class for real images: .photo-box img { width: 100%; height: 100%; object-fit: cover; } */
+
+    </style>
+</head>
+<body>
+
+    <div class="event-container">
+        
+        <h1 class="event-page-title"><strong>Funding The Future:</strong> The Ecolving Landscape of Startup Finance</h1>
+
+        <div class="event-tile">
+            <button class="tile-header">
+                <span class="tile-title">📅 Event Details</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="tile-content">
+                <div class="content-inner">
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <strong>Date</strong>
+                            October 15, 2025
+                        </div>
+                        <div class="detail-item">
+                            <strong>Time</strong>
+                            3:15 PM
+                        </div>
+                        <div class="detail-item">
+                            <strong>Venue</strong>
+                            F2 Seminar hall, F Block, <strong>Amity University Noida</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-tile">
+            <button class="tile-header">
+                <span class="tile-title">📝 Event Summary</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="tile-content">
+                <div class="content-inner">
+                    <p>Students gained direct access to the minds of successful entrepreneurs and experts during a session focused on the "new rules" of startup funding. From crowdfunding to angel investing, the panel broke down the shifting financial dynamics of the startup world and provided a roadmap for the next generation to sharpen their skills and seize emerging opportunities.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-tile">
+            <button class="tile-header">
+                <span class="tile-title">👥 Organizing Team</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="tile-content">
+                <div class="content-inner">
+                    <div class="team-list">
+                        <div class="team-member">Arnav Khandelwal</div>
+                        <div class="team-member">Anoushka Gogoi</div>
+                        <div class="team-member">Rounak Kapoor</div>
+                        <div class="team-member">Harman Lagadapati</div>
+                        <div class="team-member">Md Mozammil Hussain</div>
+                        <div class="team-member">Sharanaya Tiwari</div>
+                        <div class="team-member">Sumeet Gayannavar</div>
+                        <div class="team-member">Rishabh Jain</div>
+                        <div class="team-member">Tanushmita Saha</div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-tile">
+            <button class="tile-header">
+                <span class="tile-title">🎯 Event Objectives</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="tile-content">
+                <div class="content-inner">
+                    <ul class="objectives-list">
+                        <li>To Familiarize students with different startup funding sources such as venture capital, angel investors, crowdfunding, and government grants.</li>
+                        <li>To Help students understand how investors evaluate startups before providing financial support.</li>
+                        <li>To Encourage entrepreneurial and innovative thinking among young business students.</li>
+                        <li>To Develop financial literacy and practical decision-making skills beyond textbook learning.</li>
+                        <li>To Create a platform for interaction and idea exchange between students and industry professionals.</li>
+                        <li>To Inspire students to explore career paths in finance, consulting, and entrepreneurship.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-tile">
+            <button class="tile-header">
+                <span class="tile-title">📊 Event Report</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="tile-content">
+                <div class="content-inner">
+                    <p>Finatics, the finance club of Amity School of Business, brought the world of venture capital and entrepreneurship to F Block this October. The panel, "Funding the Future," featured a diverse lineup of founders and specialists who shared firsthand accounts of navigating the startup ecosystem. Students walked away with a clearer understanding of how to secure backing and manage growth, thanks to the collective expertise of Dr. Anubhav Gupta, Mr. Dhruv Arora, and Mr. Kanchann Singh Kuwarbi, who highlighted everything from branding strategies to the challenges of modern fundraising.</p>
+                </div>
+            </div>
+        </div>
+<div class="event-tile">
+    <button class="tile-header">
+        <span class="tile-title">🎙️ Panelists</span>
+        <span class="icon">+</span>
+    </button>
+    <div class="tile-content">
+        <div class="content-inner">
+
+            <div class="panelist-grid">
+                
+                <div class="panelist-card">
+                    <img src="Anubhav.jpg" alt="panelist 1" class="panelist-photo">
+                    <div class="panelist-name">Dr. Anubhav Gupta</div>
+                    <div class="panelist-role">SEO Expert and Data Strategist</div>
+                </div>
+
+                <div class="panelist-card">
+                    <img src="Dhruv.png" alt="Panelists 2" class="panelist-photo">
+                    <div class="panelist-name">Mr. Dhruv Arora</div>
+                    <div class="panelist-role">Founder of Leaf Ortho</div>
+                </div>
+
+                <div class="panelist-card">
+                    <img src="Kanchann.png" alt="Panelists 3" class="panelist-photo">
+                    <div class="panelist-name">Mr. Kanchann Singh Kuwarbi</div>
+                    <div class="panelist-role">Founder of Consulting & iAura</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="event-tile">
+            <button class="tile-header">
+                <span class="tile-title">💡 Student Learnings</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="tile-content">
+                <div class="content-inner">
+                    <p>The event provided students with a comprehensive understanding of the <strong>startup funding ecosystem</strong> , merging technical knowledge of <strong>various funding sources</strong> —such as venture capital and government grants—with insights into how <strong>investors evaluate business ideas</strong>  based on innovation, scalability, and sustainability. Industry professionals shared <strong>real-world financial insights</strong>  to illustrate the link between <strong>strategic financial planning</strong>  and overcoming business challenges, while also emphasizing that finance extends beyond numbers to include strategy and vision. The discussion further highlighted the necessity of a <strong>strong digital presence</strong>  for attracting investors and building credibility. Ultimately, the session fostered an <strong>entrepreneurial mindset</strong>  focused on creative problem-solving and calculated risks, while underscoring the vital role of <strong>networking and communication</strong>  in achieving long-term professional success.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-tile">
+            <button class="tile-header">
+                <span class="tile-title">📷 Photos</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="tile-content">
+                <div class="content-inner">
+                    <div class="photo-gallery">
+
+                        <img src="Panel-1.jpg" alt="Event Photo 1" class="gallery-img">
+
+                        <img src="Panel-2.jpg" alt="Event Photo 2" class="gallery-img">
+
+                        <img src="Panel-3.jpg" alt="Event Photo 3" class="gallery-img">
+
+                        <img src="Panel-4.jpg" alt="Event Photo 4" class="gallery-img">
+
+                        <img src="Panel-5.jpg" alt="Event Photo 5" class="gallery-img">
+
+                        <img src="Panel-6.jpg" alt="Event Photo 6" class="gallery-img">
+
+                        <img src="Panel-7.jpg" alt="Event Photo 7" class="gallery-img">
+
+                        <img src="Panel-8.jpg" alt="Event Photo 8" class="gallery-img">                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const headers = document.querySelectorAll('.tile-header');
+
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    const tile = header.parentElement;
+                    const content = tile.querySelector('.tile-content');
+                    
+                    // Toggle the active class
+                    const isOpen = tile.classList.toggle('active');
+
+                    // Animate Height using scrollHeight for smooth transition
+                    if (isOpen) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                        content.style.maxHeight = null;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Finatics | The Finance Club</p>
+<!-- CONTACT & SOCIALS -->
+<section>
+ <section class="connect-section">
+  <div class="connect-container">
+
+    <h3 class="section-title">Connect With Us</h3>
+
+    <p class="section-subtitle">
+      Stay connected with Finatics through our official platforms.
+  </p>
+
+  <div class="socials">
+    <!-- YOUTUBE -->
+    <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank">
+      <i class="fa-brands fa-youtube"></i>
+      YouTube
+    </a>
+
+    <!-- INSTAGRAM -->
+    <a href=https://www.instagram.com/finatics.asb?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw== target="_blank">
+      <i class="fa-brands fa-instagram"></i>
+      Instagram
+    </a>
+
+    <!-- LINKEDIN -->
+    <a href=https://www.linkedin.com/company/arthashashtra-the-finance-club-asb target="_blank">
+      <i class="fa-brands fa-linkedin"></i>
+      LinkedIn
+    </a>
+
+    <!-- EMAIL -->
+    <a href="mailto:YOUR_EMAIL_HERE">
+      <i class="fa-solid fa-envelope"></i>
+      Email
+    </a>
+  </div>
+  <div class="address">
+  <a href="https://maps.app.goo.gl/pHtTfokPK9DsREFx7" target="_blank" class="map-link">
+    <i class="fa-solid fa-location-dot"></i>
+    K-3 Block, Amity School of Business, Amity University Noida, Uttar Pradesh, India
+  </a>
+</div>
+
+  </p>
+</div>
+
+<section class="connect-section full-width">
+
+</footer>
+
+</body>
+</html>
