@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Finatics | The Finance Club</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class ="logo">
+    <img src="Finatics Logo.jpeg" alt="Finatics Logo">
+    <h1>Finatics</h1>
+    </div>
+  <nav>
+    <a href="./index.html">Home</a>
+    <a href="./about.html">About</a>
+    <a href="./events.html">Events</a>
+    <a href="./team.html">Team</a>
+    <a href="./resources.html">Resources</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
+</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Event Details</title>
+    <style>
+        /* --- CSS STYLES --- */
+        
+        /* Container limits width and centers content */
+        .event-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        .event-page-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-size: 2rem;
+        }
+
+        /* The Tile (Card) */
+        .event-tile {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden; /* Essential for the sliding animation */
+        }
+
+        /* The Clickable Header */
+        .tile-header {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            transition: background 0.3s ease;
+        }
+
+        .tile-header:hover {
+            background: #e9ecef;
+        }
+
+        /* The +/- Icon */
+        .tile-header .icon {
+            font-size: 1.5rem;
+            color: #3498db;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        /* Active State (When open) */
+        .event-tile.active .tile-header {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .event-tile.active .icon {
+            transform: rotate(45deg); /* Rotates + to x */
+            color: #d32f2f;
+        }
+
+        /* The Content (Hidden by default) */
+        .tile-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out; /* Smooth slide */
+            background-color: #fff;
+            text-align: justify;
+        }
+
+        .content-inner {
+            padding: 25px;
+            border-top: 1px solid #eee;
+            line-height: 1.6;
+        }
+
+        /* --- Custom Section Styles --- */
+
+        /* 1. Details Grid */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .detail-item strong {
+            display: block;
+            color: #555;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* 3. Team List */
+        .team-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            width: 100%;
+        }
+        .team-member {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 15px 15px;
+            text-align: center;
+            font-weight: 500;
+            color:#333;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+        }
+/* Mobile adjustment for Team Grid: collapses to 2 columns on small screens */
+        @media (max-width: 600px) {
+            .team-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        /* 4. Objectives List */
+        .objectives-list {
+            padding-left: 20px;
+            text-align: justify;
+        }
+        .objectives-list li {
+            margin-bottom: 8px;
+        }
+        /* --- Panelist Section Styles --- */
+.panelist-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.panelist-card {
+    flex: 1;
+    text-align: center;
+    min-width: 120px;
+}
+
+.panelist-photo {
+    width: 110px;       /* Fixed width */
+    height: 110px;      /* Fixed height */
+    border-radius: 50%; /* Makes the image a circle */
+    object-fit: cover;  /* Prevents image distortion */
+    margin-bottom: 10px;
+    border: 4px solid #f1c40f; /* Optional grey border around photo */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.panelist-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 3px;
+}
+
+.panelist-role {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* Mobile: Stack guests vertically on small screens */
+@media (max-width: 500px) {
+    .panelist-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+        /* 7. Photo Gallery */
+        .photo-gallery {
+            column-count: 3;
+            column-gap: 15px;
+            padding: 10px 0;
+        }
+        .gallery-img {
+    width: 100%; /* Forces image to fit the column width */
+    margin-bottom: 15px; /* Space between images vertically */
+    border-radius: 8px;
+    display: block; /* Removes weird gap at bottom of images */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s; /* Smooth zoom effect */
+}
+
+.gallery-img:hover {
+    transform: scale(1.03); /* Slight zoom when you hover */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Mobile: Switch to 2 columns so images aren't too small */
+@media (max-width: 600px) {
+    .photo-gallery {
+        column-count: 2;
+    }
+}
+        /* Use this class for real images: .photo-box img { width: 100%; height: 100%; object-fit: cover; } */
+
+    </style>
+</head>
+<body>
+
+    <div class="event-container">
+        
+        <h1 class="event-page-title"><strong>PODCAST:</strong> Empowering India’s shift from fuel to a
+future of sustainable Electric Mobility</h1>
+
+        <div class="event-tile">
+            <button class="tile-header">
+                <span class="tile-title">📅 Event Details</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="tile-content">
+                <div class="content-inner">
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <strong>Date</strong>
+                            September 18, 2025
+                        </div>
+                        <div class="detail-item">
+                            <strong>Time</strong>
+                            2:00 PM
+                        </div>
+                        <div class="detail-item">
+                            <strong>Venue</strong>
+                            Podcast Studio, K2 Block, <strong>Amity University Noida</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-tile">
+            <button class="tile-header">
+                <span class="tile-title">📝 Event Summary</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="tile-content">
+                <div class="content-inner">
+                    <p>How is India moving from fuel to a future of sustainable mobility? ⚡ The Finatics Club at Amity School of Business recently sat down with Safa Azhar, Founder of Sonik Mobility, to find out. In an engaging podcast hosted by Rounak Kapoor, students explored the blueprints for India's EV infrastructure and the future of eco-friendly transport. This session at K2 Block Studio was more than just a talk—it was an invitation for the next generation of innovators to lead the charge in the sustainability and mobility sectors.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-tile">
+            <button class="tile-header">
+                <span class="tile-title">👥 Organizing Team</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="tile-content">
+                <div class="content-inner">
+                    <div class="team-list">
+                        <div class="team-member">Arnav Khandelwal</div>
+                        <div class="team-member">Jahanvi Mittal</div>
+                        <div class="team-member">Wafiya Imtiyaz Wani</div>
+                        <div class="team-member">Aadyant Awasthi</div>
+                        <div class="team-member">Umang Aggarwal</div>
+                        <div class="team-member">Bhavya Sarogi</div>
+                        <div class="team-member">Sumeet Gayannavar</div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-tile">
+            <button class="tile-header">
+                <span class="tile-title">🎯 Event Objectives</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="tile-content">
+                <div class="content-inner">
+                    <ul class="objectives-list">
+                        <li><strong>Understanding the EV Transition:</strong> The primary objective was to enlighten students about India's ongoing shift from conventional fuel-based transportation to sustainable electric mobility.</li>
+                        <li><strong>Sector Awareness:</strong> The Finatics Club aimed to spread awareness regarding the increasing significance of electric vehicles and the emerging opportunities within the EV sector.</li>
+                        <li><strong>Infrastructure Insights:</strong> The event sought to provide deep insights into the financial, technological, and environmental dimensions required to build India’s EV infrastructure.</li>
+                        <li><strong>Future Leadership:</strong> It encouraged students to think critically about sustainability and innovation, highlighting the vital role future business leaders play in driving green economic growth.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-tile">
+            <button class="tile-header">
+                <span class="tile-title">📊 Event Report</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="tile-content">
+                <div class="content-inner">
+                    <p>This session was more than just a discussion; it was a roadmap for the future of sustainable business. Students left with a profound grasp of the EV landscape and the motivation to lead with a conscience. By highlighting the synergy between profitability and planetary responsibility, the event perfectly embodied the Finatics Club’s commitment to preparing students for a rapidly evolving, green-focused economy.</p>
+                </div>
+            </div>
+        </div>
+<div class="event-tile">
+    <button class="tile-header">
+        <span class="tile-title">🎙️ Guest Speaker</span>
+        <span class="icon">+</span>
+    </button>
+    <div class="tile-content">
+        <div class="content-inner">
+
+            <div class="panelist-grid">
+                
+                <div class="panelist-card">
+                    <img src="Safa.jpg" alt="panelist 1" class="panelist-photo">
+                    <div class="panelist-name">Mr. Safa Azhar</div>
+                    <div class="panelist-role">Founder: Sonik Mobility</div>
+                </div>
+
+                <div class="panelist-card">
+                    <img src="Rounak.jpg" alt="Panelists 2" class="panelist-photo">
+                    <div class="panelist-name">Rounak Kapoor</div>
+                    <div class="panelist-role">Host</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="event-tile">
+            <button class="tile-header">
+                <span class="tile-title">💡 Student Learnings</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="tile-content">
+                <div class="content-inner">
+                    <p>Students gained a comprehensive <strong>understanding of electric mobility</strong>, recognizing the critical <strong>importance of sustainability</strong> in today’s shifting landscape. The session provided deep <strong>financial and technological insights</strong>, shedding light on the complexities and <strong>challenges in building EV infrastructure</strong>. A key focus was placed on the <strong>connection between business and sustainability</strong>, illustrating the vital <strong>role of startups in driving green innovation</strong>. Ultimately, the experience served as <strong>inspiration for future leaders</strong>, encouraging them to integrate environmental responsibility with economic growth.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-tile">
+            <button class="tile-header">
+                <span class="tile-title">📷 Photos</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="tile-content">
+                <div class="content-inner">
+                    <div class="photo-gallery">
+
+                        <img src="Podcast-3.JPG" alt="Event Photo 1" class="gallery-img">
+
+                        <img src="Podcast-2.JPG" alt="Event Photo 2" class="gallery-img">
+
+                        <img src="Podcast-4.jpg" alt="Event Photo 3" class="gallery-img">
+
+                        <img src="Podcast-5.jpg" alt="Event Photo 4" class="gallery-img">
+
+                        <img src="Podcast-6.png" alt="Event Photo 5" class="gallery-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const headers = document.querySelectorAll('.tile-header');
+
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    const tile = header.parentElement;
+                    const content = tile.querySelector('.tile-content');
+                    
+                    // Toggle the active class
+                    const isOpen = tile.classList.toggle('active');
+
+                    // Animate Height using scrollHeight for smooth transition
+                    if (isOpen) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                        content.style.maxHeight = null;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Finatics | The Finance Club</p>
+<!-- CONTACT & SOCIALS -->
+<section>
+ <section class="connect-section">
+  <div class="connect-container">
+
+    <h3 class="section-title">Connect With Us</h3>
+
+    <p class="section-subtitle">
+      Stay connected with Finatics through our official platforms.
+  </p>
+
+  <div class="socials">
+    <!-- YOUTUBE -->
+    <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank">
+      <i class="fa-brands fa-youtube"></i>
+      YouTube
+    </a>
+
+    <!-- INSTAGRAM -->
+    <a href=https://www.instagram.com/finatics.asb?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw== target="_blank">
+      <i class="fa-brands fa-instagram"></i>
+      Instagram
+    </a>
+
+    <!-- LINKEDIN -->
+    <a href=https://www.linkedin.com/company/arthashashtra-the-finance-club-asb target="_blank">
+      <i class="fa-brands fa-linkedin"></i>
+      LinkedIn
+    </a>
+
+    <!-- EMAIL -->
+    <a href="mailto:YOUR_EMAIL_HERE">
+      <i class="fa-solid fa-envelope"></i>
+      Email
+    </a>
+  </div>
+  <div class="address">
+  <a href="https://maps.app.goo.gl/pHtTfokPK9DsREFx7" target="_blank" class="map-link">
+    <i class="fa-solid fa-location-dot"></i>
+    K-3 Block, Amity School of Business, Amity University Noida, Uttar Pradesh, India
+  </a>
+</div>
+
+  </p>
+</div>
+
+<section class="connect-section full-width">
+
+</footer>
+
+</body>
+</html>
